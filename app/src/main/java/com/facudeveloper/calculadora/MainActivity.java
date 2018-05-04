@@ -168,6 +168,7 @@ public class MainActivity extends AppCompatActivity {
                 suma();
             }
         });
+
         btn_resta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -334,9 +335,12 @@ public class MainActivity extends AppCompatActivity {
 
         if (strNumeroIngresado != null) {
             if (negativo) {
-                numerosAlmacenados.add("-" + strNumeroIngresado);
+                numerosAlmacenados.add(strNumeroIngresado);
 
                 negativo=false;
+
+                onlyOneMinus=false;
+
             } else {
                 numerosAlmacenados.add(strNumeroIngresado);
             }
@@ -356,6 +360,10 @@ public class MainActivity extends AppCompatActivity {
 
         strNumeroIngresado = null;
 
+        negativo=false;
+
+        onlyOneMinus=false;
+
 
     }
 
@@ -367,9 +375,11 @@ public class MainActivity extends AppCompatActivity {
 
         if (strNumeroIngresado != null) {
             if (negativo) {
-                numerosAlmacenados.add("-" + strNumeroIngresado);
+                numerosAlmacenados.add(strNumeroIngresado);
 
                 negativo=false;
+
+                onlyOneMinus=false;
             } else {
                 numerosAlmacenados.add(strNumeroIngresado);
             }
@@ -385,6 +395,12 @@ public class MainActivity extends AppCompatActivity {
 
             textViewResultadoEnPantalla.setText(String.valueOf(multi));
 
+            strNumeroIngresado = null;
+
+            negativo=false;
+
+            onlyOneMinus=false;
+
 
         }
     }
@@ -397,9 +413,11 @@ public class MainActivity extends AppCompatActivity {
 
         if (strNumeroIngresado != null) {
             if (negativo) {
-                numerosAlmacenados.add("-" + strNumeroIngresado);
+                numerosAlmacenados.add(strNumeroIngresado);
 
                 negativo=false;
+
+                onlyOneMinus=false;
             } else {
                 numerosAlmacenados.add(strNumeroIngresado);
             }
@@ -414,6 +432,12 @@ public class MainActivity extends AppCompatActivity {
             }
 
             textViewResultadoEnPantalla.setText(String.valueOf(divi));
+
+            strNumeroIngresado = null;
+
+            negativo=false;
+
+            onlyOneMinus=false;
 
         }
     }
@@ -528,6 +552,12 @@ public class MainActivity extends AppCompatActivity {
 
                 textViewResultadoEnPantalla.setText(String.valueOf(resta));
 
+                if(resta<0){
+                    negativo=true;
+
+                    onlyOneMinus=true;
+                }
+
                 strNumeroIngresado = null;
             }
 
@@ -541,6 +571,12 @@ public class MainActivity extends AppCompatActivity {
 
 
                 textViewResultadoEnPantalla.setText(String.valueOf(multi));
+
+                if(multi<0){
+                    negativo=true;
+
+                    onlyOneMinus=true;
+                }
 
                 strNumeroIngresado = null;
 
@@ -557,6 +593,12 @@ public class MainActivity extends AppCompatActivity {
 
 
                 textViewResultadoEnPantalla.setText(String.valueOf(divi));
+
+                if(divi<0){
+                    negativo=true;
+
+                    onlyOneMinus=true;
+                }
 
                 strNumeroIngresado = null;
 
